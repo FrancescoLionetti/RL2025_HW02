@@ -51,16 +51,7 @@ In another terminal launch the following command:
 ```shell
 $ ros2 launch ros2_kdl_package kdl_node.launch.py
 ```
-By default the node publishes joint position commands. To use the velocity commands you have to launch the robot with:
- 
-```shell
-$ ros2 launch iiwa_bringup iiwa.launch.py command_interface:="velocity" robot_controller:="velocity_controller"
-```
-and then:
- 
-```shell
-$ ros2 run ros2_kdl_package ros2_kdl_node cmd_interface:=velocity
-```
+By default the node publishes joint position commands. To use the velocity commands see the point 1B.
  
 ## **1B. Simulation of the Kuka IIWA robot in RViz with the choice of the controller**
 In the first terminal launch the commands to start RViz:
