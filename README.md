@@ -74,7 +74,7 @@ $	ros2 launch ros2_kdl_package kdl_action.launch.py
 And then:
  
 ```shell
-$	ros2 run ros2_kdl_package action_client_node <x> <y> <z> 
+$	ros2 run ros2_kdl_package action_client_node 0.4 0.3 0.5
 ```
  
 ## 🏃 Vision Based Control
