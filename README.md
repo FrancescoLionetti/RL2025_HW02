@@ -26,15 +26,15 @@ To set up and test the project, follow these steps inside your ROS 2 workspace
  
 1.  **Clone the Repository:**
     ```shell
-    $ cd ~/ros2_ws/src
-    $ git clone https://github.com/FrancescoLionetti/RL2025_HW02.git
+    cd ~/ros2_ws
+    git clone https://github.com/Federica2103/RL2025_HW02.git
     ```
  
 2.  **Build and Source:**
     ```shell
-     $	cd ..
-     $	colcon build
-     $	source install/setup.bash
+     cd ..
+     colcon build
+     source install/setup.bash
     ```
  
 ## 🏃 Execution Instructions (Kinematic Control)
@@ -44,24 +44,24 @@ This section details how to build and run the Kinematic Control solution.
 ## **1A. Parameterized launch and kinematic control execution**
 In the first terminal launch the commands to start RViz:
 ```shell
-$ ros2 launch iiwa_bringup iiwa.launch.py
+ros2 launch iiwa_bringup iiwa.launch.py
 ```
 In another terminal launch the following command:
  
 ```shell
-$ ros2 launch ros2_kdl_package kdl_node.launch.py
+ros2 launch ros2_kdl_package kdl_node.launch.py
 ```
-By default the node publishes joint position commands. To use the velocity commands see the point 1B.
+By default the node publishes joint position commands. To use the velocity look to point 1b.
  
 ## **1B. Simulation of the Kuka IIWA robot in RViz with the choice of the controller**
 In the first terminal launch the commands to start RViz:
 ```shell
-$ ros2 launch iiwa_bringup iiwa.launch.py coomand_interface:="velocity" robot_controller:="velocity_command"
+ros2 launch iiwa_bringup iiwa.launch.py coomand_interface:="velocity" robot_controller:="velocity_command"
 ```
 In a second terminal launch the following command for the velocity control:
  
 ```shell
-$	ros2 launch ros2_kdl_package kdl_node.launch.py cmd_interface:=velocity ctrl:=<type>
+ros2 launch ros2_kdl_package kdl_node.launch.py cmd_interface:=velocity ctrl:=<type>
 ```
 where < type > can be 'velocity_ctrl' or 'velocity_ctrl_null' (to implement a controller that avoids joint limits)
  
@@ -69,12 +69,12 @@ where < type > can be 'velocity_ctrl' or 'velocity_ctrl_null' (to implement a co
 To simulate with action-client service, after you launched with velocity command, in another terminal you have to launch:
  
 ```shell
-$	ros2 launch ros2_kdl_package kdl_action.launch.py 
+ros2 launch ros2_kdl_package kdl_action.launch.py 
 ```
 And then:
  
 ```shell
-$	ros2 run ros2_kdl_package action_client_node 0.4 0.3 0.5
+ros2 run ros2_kdl_package action_client_node 0.4 0.3 0.5
 ```
  
 ## 🏃 Vision Based Control
@@ -84,12 +84,12 @@ This section details how to build and run the Vision Based Control solution.
 ## **Detect an ArucoTag in a Gazebo world**
 In the first terminal launch the command to visualize the robot in Gazebo world:
 ```shell
-  $ ros2 launch ros2_kdl_package gaz.launch.py
+  ros2 launch ros2_kdl_package gaz.launch.py
 ```
 Then launch:
  
 ```shell
-$	ros2 launch aruco_ros single.launch.py marker_size:=0.1 marker_id:=18
+ros2 launch aruco_ros single.launch.py marker_size:=0.1 marker_id:=18
 ```
 Switch the topic of image_view.
  
@@ -98,11 +98,11 @@ Switch the topic of image_view.
 If you want activate a vision-control based put this command:
  
 ```shell
-$ ros2 run ros2_kdl_package ros2_vision_control_node cmd_interface:=velocity ctrl:=vision
+ros2 run ros2_kdl_package ros2_vision_control_node cmd_interface:=velocity ctrl:=vision
 ```
 To switch the auco tag position whit CLI launch this command:
  
 ```shell
-$ ros2 service call /world/default/set_pose ros_gz_interfaces/srv/SetEntityPose 	"{entity: {name: 'aruco_tag', type: 1}, pose: {position: {x: 0.25, y: -0.48, z: 0.41}, 	orientation: {x: 1.36, y: 0.00, z: -1.17, w: 0.0}}}"
+ros2 service call /world/default/set_pose ros_gz_interfaces/srv/SetEntityPose "{entity: {name: 'aruco_tag', type: 1}, pose: { position: {x: 0.17, y: -0.48, z: 0.41}, orientation: {x: 0.524, y: -0.347, z: -0.429, w: 0.649}}}"
 ```
 you can set different position and orientation.
