@@ -103,6 +103,6 @@ $ ros2 run ros2_kdl_package ros2_vision_control_node cmd_interface:=velocity ctr
 To switch the auco tag position whit CLI launch this command:
  
 ```shell
-$ ros2 service call /world/default/set_pose ros_gz_interfaces/srv/SetEntityPose 	"{entity: {name: 'aruco_tag', type: 1}, pose: {position: {x: 1.3, y: 0.6, z: 0.2}, 	orientation: {x: 0.0, y: 0.0, z: 0.0, w: 1.0}}}"
+$ ros2 service call /world/default/set_pose ros_gz_interfaces/srv/SetEntityPose 	"{entity: {name: 'aruco_tag', type: 1}, pose: {position: {x: 0.25, y: -0.48, z: 0.41}, 	orientation: {x: 1.36, y: 0.00, z: -1.17, w: 0.0}}}"
 ```
 you can set different position and orientation.
