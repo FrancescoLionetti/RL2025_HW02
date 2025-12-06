@@ -27,7 +27,7 @@ To set up and test the project, follow these steps inside your ROS 2 workspace
 1.  **Clone the Repository:**
     ```shell
     cd ~/ros2_ws
-    git clone https://github.com/Federica2103/RL2025_HW02.git
+    https://github.com/FrancescoLionetti/RL2025_HW02.git
     ```
  
 2.  **Build and Source:**
